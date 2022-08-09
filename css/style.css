@@ -229,10 +229,16 @@ li.popup__item:focus-within {
 
 @media (max-width: 575px) {
   #popup__icon:checked ~ .popup__container {
-    left: 15%;
+    left: 10%;
   }
   #popup:checked ~ .popup__container {
-    left: 15%;
+    left: 10%;
+  }
+  .popup__button__hide {
+    width: 250px;
+  }
+  .popup__button__more {
+    width: 250px;
   }
 }
 
@@ -251,6 +257,12 @@ li.popup__item:focus-within {
   }
   #popup:checked ~ .popup__container {
     left: 58%;
+  }
+  .popup__button__hide {
+    width: 230px;
+  }
+  .popup__button__more {
+    width: 230px;
   }
 }
 
