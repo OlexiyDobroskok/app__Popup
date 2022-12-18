@@ -1,6 +1,9 @@
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 18px;
@@ -11,6 +14,7 @@ body {
 .menu__link:active {
   text-decoration: underline;
 }
+
 .popup__link:active {
   text-decoration: underline;
 }
@@ -27,11 +31,13 @@ body {
 }
 
 .menu {
+  position: relative;
   height: 60px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
+
 
 .menu__item {
   display: inline;
@@ -42,8 +48,9 @@ body {
   margin: 0;
 }
 
-.chek__label {
-  padding: 10px 0px 3px 30px;
+.check__label {
+  cursor: pointer;
+  padding: 10px 0 3px 30px;
 }
 
 .checkbox {
@@ -78,6 +85,7 @@ body {
   font-size: 27px;
   padding: 3px;
 }
+
 .menu__img {
   height: 25px;
   width: 25px;
@@ -96,186 +104,103 @@ input.popup__checkbox {
 
 .popup__container {
   display: none;
+  width: 330px;
+  max-height: 400px;
+  padding: 1rem .5rem;
   position: absolute;
-  top: 80px;
-  left: 70%;
-  width: 320px;
-  height: 350px;
-  margin-right: 30%;
+  top:70px;
+  right: 0;
+  border: 2px solid rgb(168, 185, 231);
+  border-radius: 5px;
   background-color: whitesmoke;
   overflow-y: auto;
 }
 
 #popup__icon:checked ~ .popup__container {
-  display: inline-block;
+  display: block;
 }
 
 .popup__list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  gap:10px;
 }
+
 .popup__item {
-  display: block;
   width: 90px;
   padding: 10px;
   text-align: center;
-  margin: 5px;
+  list-style-type: none;
 }
+
 .popup__link {
   color: #000;
   text-decoration: none;
   font-size: 14px;
   font-weight: bold;
 }
+
 .popup__img {
   width: 48px;
   height: 48px;
 }
+
 .hidden__list {
   display: none;
 }
-.popup__button__more {
+
+.popup__button{
   display: block;
   width: 220px;
   height: 30px;
   padding: 5px;
-  margin: 7px auto;
+  margin: 15px auto;
   text-align: center;
   font-weight: 600;
+  cursor: pointer;
   background-color: rgb(238, 232, 225);
 }
 
-.popup__button__hide {
-  display: block;
-  width: 220px;
-  height: 30px;
-  padding: 5px;
-  margin: 7px auto;
-  text-align: center;
-  font-weight: 600;
-  background-color: rgb(238, 232, 225);
-}
-
-.popup__button__hide {
+.popup__text-hide {
   display: none;
 }
 
 #popup:checked ~ .hidden__list {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
 }
 
-#popup:focus ~ * span.popup__button__more {
-  outline: 3px solid rgb(67, 90, 153);
-  border-radius: 5px;
-}
-#popup:focus ~ * span.popup__button__hide {
+#popup:focus ~ .popup__button {
   outline: 3px solid rgb(67, 90, 153);
   border-radius: 5px;
 }
 
-#popup:checked ~ * span.popup__button__more {
+#popup:checked ~ .popup__button > .popup__text-more {
   display: none;
 }
-#popup:checked ~ * span.popup__button__hide {
-  display: block;
+
+#popup:checked ~ .popup__button > .popup__text-hide {
+  display: inline;
 }
 
-.checkbox:focus ~ .chek__label {
+.menu__link:focus ,
+.checkbox:focus ~ .check__label {
   outline: 3px solid rgb(67, 90, 153);
   border-radius: 5px;
   background-color: rgb(127, 153, 224);
 }
 
-a.menu__link:focus-within {
-  outline: 3px solid rgb(67, 90, 153);
-  border-radius: 5px;
-  background-color: rgb(127, 153, 224);
-}
-
-a.popup__link:focus {
+.popup__link:focus {
   outline: none;
 }
 
-li.popup__item:focus-within {
+.popup__item:focus-within {
   outline: 3px solid rgb(67, 90, 153);
   border-radius: 5px;
   background-color: rgb(238, 232, 225);
 }
 
-.popup__item:hover,
-.popup__button span:hover {
+.popup__item:hover{
   cursor: pointer;
   background-color: rgb(238, 232, 225);
-}
-
-.popup__button span:focus {
-  outline: 3px solid rgb(67, 90, 153);
-  border-radius: 5px;
-  background-color: rgb(238, 232, 225);
-}
-
-.menu__link:focus,
-.menu__link__img:focus,
-.popup__checkbox:focus {
-  outline: 3px solid rgb(67, 90, 153);
-  border-radius: 5px;
-  background-color: rgb(127, 153, 224);
-}
-
-.menu__link:hover,
-.menu__link__img:hover,
-.popup__checkbox:hover {
-  cursor: pointer;
-  background-color: rgb(127, 153, 224);
-}
-
-@media (max-width: 575px) {
-  #popup__icon:checked ~ .popup__container {
-    left: 10%;
-  }
-  #popup:checked ~ .popup__container {
-    left: 10%;
-  }
-  .popup__button__hide {
-    width: 250px;
-  }
-  .popup__button__more {
-    width: 250px;
-  }
-}
-
-@media (576px <= width <= 767px) {
-  #popup__icon:checked ~ .popup__container {
-    left: 45%;
-  }
-  #popup:checked ~ .popup__container {
-    left: 45%;
-  }
-}
-
-@media (768px <= width <= 992px) {
-  #popup__icon:checked ~ .popup__container {
-    left: 58%;
-  }
-  #popup:checked ~ .popup__container {
-    left: 58%;
-  }
-  .popup__button__hide {
-    width: 230px;
-  }
-  .popup__button__more {
-    width: 230px;
-  }
-}
-
-@media (993px <= width <= 1200px) {
-  #popup__icon:checked ~ .popup__container {
-    left: 65%;
-  }
-  #popup:checked ~ .popup__container {
-    left: 65%;
-  }
 }
